@@ -3,7 +3,6 @@
 
 /* --- GLOBAL TOKENS & GREEN COLOR PALETTE --- */
 :root {
-  /* Rare, soft mint-sage green background shades */
   --bg-top: #f0f7f4;
   --bg-bottom: #e2f0ea;
   --bg-surface: rgba(255, 255, 255, 0.88);
@@ -12,7 +11,6 @@
   --text-dark: #0f291e;
   --text-muted: #4a6b5d;
   
-  /* Bright Emerald Green Palette */
   --green-bright: #10b981;
   --green-dark: #047857;
   --primary-gradient: linear-gradient(135deg, #059669, #10b981);
@@ -29,7 +27,6 @@
 }
 
 html, body {
-  /* Soft, rare green radial gradient background */
   background: 
     radial-gradient(at 0% 0%, rgba(209, 250, 229, 0.7) 0px, transparent 50%),
     radial-gradient(at 100% 100%, rgba(167, 243, 208, 0.4) 0px, transparent 50%),
@@ -82,7 +79,7 @@ body nav a {
   display: inline-block;
 }
 
-/* Nav Link Green Underline Hover Animation */
+/* Nav Link Underline Hover Animation */
 body nav a::after {
   content: "";
   position: absolute;
@@ -233,7 +230,7 @@ main li:hover img {
   transform: scale(1.08);
 }
 
-/* Bright green bar accent for text-only list items (e.g. Categories) */
+/* Accent indicator for text-only list items (e.g. Categories) */
 main li:not(:has(img)):not(:has(strong)) {
   position: relative;
   padding-left: 1.75rem;
@@ -267,4 +264,50 @@ footer {
   font-size: 0.95rem;
   font-weight: 300;
   margin-top: auto;
+}
+
+/* --- MOBILE RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 640px) {
+  body nav {
+    padding: 1.25rem 1rem;
+  }
+
+  body nav ul {
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    justify-content: center;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    padding: 0.75rem 1.25rem;
+    border-radius: 30px;
+    box-shadow: var(--shadow-sm);
+    backdrop-filter: blur(8px);
+  }
+
+  body nav a {
+    font-size: 0.95rem;
+    padding: 0.4rem 0.5rem;
+  }
+
+  main {
+    padding: 1.5rem 1.25rem 2.5rem 1.25rem;
+  }
+
+  main h1 {
+    font-size: 1.85rem;
+  }
+
+  main h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  main ul {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .main-logo {
+    max-width: 100%;
+  }
 }
