@@ -57,15 +57,10 @@ app.get('/projects', async (req, res) => {
 });
 
 app.get('/categories', async (req, res) => {
-    console.log('>>> HIT /categories ROUTE <<<');
-    try {
-        const categories = await getAllCategories();
-        const title = 'Categories';
-        res.render('categories', { title, categories });
-    } catch (error) {
-        console.error("THE EXACT ERROR IS:", error);
-        res.status(500).send("Check your terminal for the error.");
-    }
+    const categories = await getAllCategories();
+    const title = 'Project Categories'; 
+
+    res.render('categories', { title, categories });
 });
 
 app.listen(PORT, async () => {
