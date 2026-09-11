@@ -51,4 +51,52 @@ INSERT INTO projects (title, project_description, project_location, project_date
 
 SELECT * FROM projects;
 
+--CATEGORIES TABLE
+
+CREATE TABLE categories (
+    category_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL UNIQUE
+);
+
+
+CREATE TABLE project_categories (
+    project_id INT REFERENCES projects(project_id) ON DELETE CASCADE,
+    category_id INT REFERENCES categories(category_id) ON DELETE CASCADE,
+    PRIMARY KEY (project_id, category_id)
+);
+
+
+INSERT INTO categories (name) VALUES
+('Community Development'),
+('Environment & Sustainability'),
+('Education & Outreach');
+
+
+-- BrightFuture Builders Projects (IDs 1-5)
+INSERT INTO project_categories (project_id, category_id) VALUES
+(1, 1), (1, 3), -- Community Center Expansion
+(2, 1),         -- Affordable Housing Initiative
+(3, 1), (3, 3), -- Public Library Renovation
+(4, 1),         -- Urban Park Playground Build
+(5, 1);         -- Shelter Kitchen Remodel
+
+-- GreenHarvest Growers Projects (IDs 6-10)
+INSERT INTO project_categories (project_id, category_id) VALUES
+(6, 2),         -- Urban Rooftop Greenhouse
+(7, 2),         -- Community Orchard Planting
+(8, 2), (8, 3), -- Soil Health Workshop Series
+(9, 2), (9, 3), -- School Garden Expansion
+(10, 1);        -- Farmers Market Infrastructure
+
+-- UnityServe Volunteers Projects (IDs 11-15)
+INSERT INTO project_categories (project_id, category_id) VALUES
+(11, 2),        -- Annual River Cleanup
+(12, 3),        -- Senior Tech Literacy Drive
+(13, 1),        -- Winter Coat & Blanket Drive
+(14, 1),        -- Food Bank Logistics Support
+(15, 2);        -- Neighborhood Tree Planting
+
+SELECT * FROM categories;
+SELECT * FROM project_categories;
+
 

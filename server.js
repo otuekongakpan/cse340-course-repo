@@ -55,9 +55,10 @@ app.get('/projects', async (req, res) => {
     res.render('projects', { title, projects });
 });
 
-app.get('/categories', (req, res) => {
+app.get('/categories', async (req, res) => {
+    const categories = await getAllCategories();
     const title = 'Categories';
-    res.render('categories', { title });
+    res.render('categories', { title, categories });
 });
 
 app.listen(PORT, async () => {
