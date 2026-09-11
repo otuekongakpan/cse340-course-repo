@@ -4,6 +4,7 @@ import express from 'express';
 import { testConnection } from './src/models/db.js';
 import { getAllOrganizations } from './src/models/organizations.js';
 import { getAllProjects } from './src/models/projects.js';
+import { getAllCategories } from './src/models/categories.js';
   
 
 // Define the application environment
@@ -56,9 +57,15 @@ app.get('/projects', async (req, res) => {
 });
 
 app.get('/categories', async (req, res) => {
-    const categories = await getAllCategories();
-    const title = 'Categories';
-    res.render('categories', { title, categories });
+    console.log('>>> HIT /categories ROUTE <<<');
+    try {
+        const categories = await getAllCategories();
+        const title = 'Categories';
+        res.render('categories', { title, categories });
+    } catch (error) {
+        console.error("THE EXACT ERROR IS:", error);
+        res.status(500).send("Check your terminal for the error.");
+    }
 });
 
 app.listen(PORT, async () => {
