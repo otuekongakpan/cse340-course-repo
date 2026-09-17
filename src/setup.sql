@@ -100,3 +100,19 @@ SELECT * FROM categories;
 SELECT * FROM project_categories;
 
 
+-- Insert 5 new future projects
+INSERT INTO projects (title, project_description, project_location, project_date, organization_id) VALUES
+('Community Solar Initiative', 'Installing community-shared solar panels to offset neighborhood energy costs.', 'East End Community Center', '2026-11-10', 1),
+('Youth Coding & Robotics Bootcamp', 'A 6-week weekend program teaching basic Python and robotics to local teens.', 'Tech Hub Downtown', '2026-12-05', 3),
+('Neighborhood Rain Garden Network', 'Building rain gardens to manage stormwater runoff and beautify public walkways.', 'South Boulevard', '2027-03-15', 2),
+('Senior Health & Wellness Fair', 'Providing free health screenings, mobility workshops, and nutritional guidance.', 'Golden Age Center', '2027-04-20', 3),
+('Recycled Materials Art Park', 'Transforming local industrial waste into permanent public sculpture installations.', 'Riverfront Arts District', '2027-05-12', 1);
+
+-- Link the new projects to categories in the junction table
+INSERT INTO project_categories (project_id, category_id) VALUES
+(16, 2), -- Community Solar Initiative -> Environment & Sustainability
+(17, 3), -- Youth Coding Bootcamp -> Education & Outreach
+(18, 2), -- Rain Garden Network -> Environment & Sustainability
+(19, 1), -- Senior Health Fair -> Community Development
+(20, 1); -- Recycled Materials Art Park -> Community Development
+
