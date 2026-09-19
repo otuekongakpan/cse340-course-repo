@@ -317,6 +317,44 @@ footer {
   text-decoration: underline;
 }
 
+/* --- CATEGORY LINKS & TAGS --- */
+.category-link {
+  color: var(--green-dark);
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.25s ease;
+}
+
+.category-link:hover {
+  color: var(--green-bright);
+  text-decoration: underline;
+}
+
+.category-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.category-tag {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  padding: 0.25rem 0.9rem;
+  color: var(--green-dark);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.category-tag:hover {
+  background: var(--bg-surface-hover);
+  border-color: var(--green-bright);
+  color: var(--green-bright);
+}
+
 /* --- MOBILE RESPONSIVE MEDIA QUERIES --- */
 @media (max-width: 640px) {
   body nav {
