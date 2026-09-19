@@ -266,6 +266,57 @@ footer {
   margin-top: auto;
 }
 
+/* --- SERVICE PROJECT LINKS --- */
+
+.project-card-link {
+  text-decoration: none;
+  color: var(--text-dark);
+  display: block;
+}
+
+.project-card-link h3 {
+  margin: 0;
+  color: var(--green-dark);
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.35;
+  transition: color 0.25s ease;
+}
+
+.project-card-link:hover h3 {
+  color: var(--green-bright);
+}
+
+.project-organization {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.organization-link {
+  color: var(--green-dark);
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.25s ease;
+}
+
+.organization-link:hover {
+  color: var(--green-bright);
+  text-decoration: underline;
+}
+
+.project-organization-link {
+  color: var(--green-dark);
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.25s ease;
+}
+
+.project-organization-link:hover {
+  color: var(--green-bright);
+  text-decoration: underline;
+}
+
 /* --- MOBILE RESPONSIVE MEDIA QUERIES --- */
 @media (max-width: 640px) {
   body nav {

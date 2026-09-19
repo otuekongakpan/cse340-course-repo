@@ -3,22 +3,23 @@ import { getProjectDetails, getUpcomingProjects } from '../models/projects.js';
 const NUMBER_OF_UPCOMING_PROJECTS = 5;
 
 const showProjectsPage = async (req, res) => {
+    const upcomingProjects = await getUpcomingProjects(
+        NUMBER_OF_UPCOMING_PROJECTS
+    );
 
-    const upcomingProjects = await getUpcomingProjects(NUMBER_OF_UPCOMING_PROJECTS);
     const title = 'Upcoming Service Projects';
 
     res.render('projects', { title, upcomingProjects });
 };
 
 const showProjectDetailsPage = async (req, res) => {
-    const projectId= req.params.id;
+    const projectId = req.params.id;
 
     const projectDetails = await getProjectDetails(projectId);
 
-    res.render('project',{projectDetails});
+    const title = projectDetails.title;
 
-}
+    res.render('project', {title, projectDetails});
+};
 
-
-
-export {showProjectsPage, showProjectDetailsPage};
+export { showProjectsPage, showProjectDetailsPage };
