@@ -355,6 +355,15 @@ footer {
   color: var(--green-bright);
 }
 
+.organization-title {
+    color: inherit;          /* use the heading's color instead of default blue */
+    text-decoration: none;   /* remove the underline */
+}
+
+.organization-title:hover {
+    text-decoration: underline;  /* optional hover effect */
+}
+
 /* --- MOBILE RESPONSIVE MEDIA QUERIES --- */
 @media (max-width: 640px) {
   body nav {
