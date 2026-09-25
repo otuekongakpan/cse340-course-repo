@@ -56,7 +56,7 @@ const showNewProjectForm = async (req, res) => {
 
 const processNewProjectForm = async (req, res) => {
 
-        // Check for validation errors
+    // Check for validation errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         // Loop through validation errors and flash them
@@ -75,7 +75,7 @@ const processNewProjectForm = async (req, res) => {
         const newProjectId = await createProject(title, description, location, date, organizationId);
 
         req.flash('success', 'New service project created successfully!');
-        res.redirect(`/project/${newProjectId}`);
+        res.redirect(`/projects/${newProjectId}`);
     } catch (error) {
         console.error('Error creating new project:', error);
         req.flash('error', 'There was an error creating the service project.');

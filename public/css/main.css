@@ -231,13 +231,13 @@ main li:hover img {
 }
 
 /* Accent indicator for text-only list items (e.g. Categories) */
-main li:not(:has(img)):not(:has(strong)) {
+main li:not(:has(img)):not(:has(strong)):not(.project-card) {
   position: relative;
   padding-left: 1.75rem;
   font-weight: 400;
 }
 
-main li:not(:has(img)):not(:has(strong))::before {
+main li:not(:has(img)):not(:has(strong)):not(.project-card)::before {
   content: "";
   position: absolute;
   left: 1rem;
@@ -250,7 +250,7 @@ main li:not(:has(img)):not(:has(strong))::before {
   transition: height 0.25s ease;
 }
 
-main li:not(:has(img)):not(:has(strong)):hover::before {
+main li:not(:has(img)):not(:has(strong)):not(.project-card):hover::before {
   height: 1.5rem;
 }
 
@@ -390,6 +390,132 @@ footer {
     color: #0c5460;
     background-color: #d1ecf1;
     border-color: #bee5eb;
+}
+
+/* --- FORMS --- */
+form {
+  background-color: var(--bg-surface);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 2rem;
+  margin-top: 1.5rem;
+  max-width: 560px;
+  box-shadow: var(--shadow-sm);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group:last-of-type {
+  margin-bottom: 2rem;
+}
+
+.form-group label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--green-dark);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  font-family: 'Fredoka', system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text-dark);
+  background-color: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--green-bright);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+.form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23047857' stroke-width='2'%3e%3cpath d='M6 9l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+}
+
+/* --- BUTTONS --- */
+button[type="submit"],
+.btn {
+  font-family: 'Fredoka', system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  background: var(--primary-gradient);
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 1.75rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+button[type="submit"]:hover,
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+button[type="submit"]:active,
+.btn:active {
+  transform: translateY(0);
+}
+
+/* --- "ADD NEW" LINK-BUTTONS --- */
+.add-new-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #ffffff;
+  background: var(--primary-gradient);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: 999px;
+  padding: 0.6rem 1.4rem;
+  margin: 0.5rem 0 1.5rem 0;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.add-new-link:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  text-decoration: none;
+}
+
+.add-new-link::before {
+  content: "+";
+  font-size: 1.1rem;
+  line-height: 1;
 }
 
 /* --- MOBILE RESPONSIVE MEDIA QUERIES --- */

@@ -37,15 +37,9 @@ router.get('/new-organization', showNewOrganizationForm);
 // Route for new project page
 router.get('/new-project', showNewProjectForm);
 
-
-// Route to handle new organization form submission
-router.post('/new-organization', processNewOrganizationForm, organizationValidation);
-
-router.post('/edit-organization/:id', processEditOrganizationForm, organizationValidation);
-
-// Route to handle new project form submission
-router.post('/new-project', processNewProjectForm, projectValidation);
-
-router.post('/edit-projects/:id', processEditProjectForm, projectValidation);
+router.post('/new-organization', organizationValidation, processNewOrganizationForm);
+router.post('/edit-organization/:id', organizationValidation, processEditOrganizationForm);
+router.post('/new-project', projectValidation, processNewProjectForm);
+router.post('/edit-projects/:id', projectValidation, processEditProjectForm);
 
 export default router;
