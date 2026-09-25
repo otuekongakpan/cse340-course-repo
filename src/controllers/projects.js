@@ -1,5 +1,7 @@
-import { getProjectDetails, getUpcomingProjects, updateProject } from '../models/projects.js';
+import { getProjectDetails, getUpcomingProjects, updateProject, createProject } from '../models/projects.js';
 import { getCategoriesByProjectId } from '../models/categories.js';
+import { getAllOrganizations } from '../models/organizations.js';
+import { body, validationResult } from 'express-validator';
 
 const NUMBER_OF_UPCOMING_PROJECTS = 5;
 
@@ -83,16 +85,17 @@ const processNewProjectForm = async (req, res) => {
 
 const showEditProjectForm = async (req, res) => {
     const projectId = req.params.id;
-    const projectForm =  await getProjectDetails(projectId);
+    const projectDetails = await getProjectDetails(projectId);
+    const organizations = await getAllOrganizations();
+    const title = 'Edit Service Project';
 
-    res.render('project', {projectForm});
-
+    res.render('edit-project', { title, projectDetails, organizations });
 }
 
 const processEditProjectForm = async (req, res) =>
 {
     const projectId = req.params.id;
-    const { title, project_description, project_location, project_date } = req.body;
+    const { title, organizationId, project_description, project_location, project_date } = req.body;
 
     await updateProject(projectId, organizationId, project_description, project_location, project_date, title);
 
