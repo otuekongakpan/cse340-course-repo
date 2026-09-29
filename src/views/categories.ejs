@@ -3,6 +3,8 @@
 <main>
     <h1><%= title %></h1>
 
+    <a class="add-new-link" href="/new-category">Add a New Category</a>
+
     <ul>
         <% categories.forEach(category => { %>
             <li>
@@ -12,6 +14,7 @@
             </li>
         <% }); %>
     </ul>
+    
 </main>
 
 <%- include('partials/footer') %>
