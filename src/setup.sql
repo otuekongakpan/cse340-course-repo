@@ -50,6 +50,7 @@ INSERT INTO projects (title, project_description, project_location, project_date
 ('Neighborhood Tree Planting', 'Planting shade trees along major pedestrian corridors to combat urban heat islands.', 'North District Avenues', '2026-09-14', 3);
 
 SELECT * FROM projects;
+SELECT * FROM projects;
 
 --CATEGORIES TABLE
 
