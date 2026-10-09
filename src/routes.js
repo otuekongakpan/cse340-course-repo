@@ -4,7 +4,8 @@ import { showHomePage } from './controllers/index.js';import { showCategoriesPag
 import { showOrganizationsPage, showOrganizationDetailsPage, showEditOrganizationForm, processEditOrganizationForm, processNewOrganizationForm, showNewOrganizationForm, organizationValidation } from './controllers/organizations.js';
 import { showProjectsPage, showProjectDetailsPage, showEditProjectForm , processEditProjectForm, showNewProjectForm, processNewProjectForm, projectValidation } from './controllers/projects.js';
 import { testErrorPage } from './controllers/errors.js';
-
+import { showUserRegistrationForm, processUserRegistrationForm } from './controllers/users.js'; 
+import { showLoginForm, processLoginForm, processLogout } from './controllers/users.js';
 
 
 
@@ -19,6 +20,8 @@ router.get('/edit-projects/:id', showEditProjectForm);
 router.get('/assign-categories/:projectId', showAssignCategoriesForm);
 router.get('/new-category', showNewCategoryForm);
 router.get('/edit-category/:id', showEditCategoryForm);
+router.get('/register', showUserRegistrationForm);
+router.get('/login', showLoginForm);
 
 // error-handling routes
 router.get('/test-error', testErrorPage);
@@ -38,6 +41,8 @@ router.get('/new-organization', showNewOrganizationForm);
 // Route for new project page
 router.get('/new-project', showNewProjectForm);
 
+router.get('/logout', processLogout);
+
 router.post('/new-organization', organizationValidation, processNewOrganizationForm);
 router.post('/edit-organization/:id', organizationValidation, processEditOrganizationForm);
 router.post('/new-project', projectValidation, processNewProjectForm);
@@ -45,5 +50,8 @@ router.post('/edit-projects/:id', projectValidation, processEditProjectForm);
 router.post('/assign-categories/:projectId', processAssignCategoriesForm);
 router.post('/new-category', categoryValidation, processNewCategoryForm);
 router.post('/edit-category/:id', categoryValidation, processEditCategoryForm);
+router.post('/register', processUserRegistrationForm);
+router.post('/login', processLoginForm);
+
 
 export default router;
