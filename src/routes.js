@@ -5,7 +5,7 @@ import { showCategoriesPage, showCategoryDetailsPage, showAssignCategoriesForm, 
 import { showOrganizationsPage, showOrganizationDetailsPage, showEditOrganizationForm, processEditOrganizationForm, processNewOrganizationForm, showNewOrganizationForm, organizationValidation } from './controllers/organizations.js';
 import { showProjectsPage, showProjectDetailsPage, showEditProjectForm, processEditProjectForm, showNewProjectForm, processNewProjectForm, projectValidation } from './controllers/projects.js';
 import { testErrorPage } from './controllers/errors.js';
-import { showUserRegistrationForm, processUserRegistrationForm, showLoginForm, processLoginForm, processLogout, requireLogin, showDashboard, requireRole } from './controllers/users.js';
+import { showUserRegistrationForm, processUserRegistrationForm, showLoginForm, processLoginForm, processLogout, requireLogin, showDashboard, requireRole, showUsersPage } from './controllers/users.js';
 
 const router = express.Router();
 
@@ -20,7 +20,7 @@ router.get('/new-category', requireRole('admin'), showNewCategoryForm);
 router.get('/edit-category/:id', requireRole('admin'), showEditCategoryForm);
 router.get('/register', showUserRegistrationForm);
 router.get('/login', showLoginForm);
-
+router.get('/users', requireRole('admin'), showUsersPage);
 // error-handling routes
 router.get('/test-error', testErrorPage);
 
