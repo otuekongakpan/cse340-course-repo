@@ -3,7 +3,9 @@
 <main>
     <h1><%= title %></h1>
 
-    <a class="add-new-link" href="/new-category">Add a New Category</a>
+    <% if (user && user.role_name === 'admin') { %>
+        <a class="add-new-link" href="/new-category">Add a New Category</a>
+    <% } %>
 
     <ul>
         <% categories.forEach(category => { %>
@@ -11,7 +13,9 @@
                 <a class="category-link" href="/category/<%= category.category_id %>">
                     <%= category.name %>
                 </a>
-                <a href="/edit-category/<%= category.category_id %>">Edit</a>
+                <% if (user && user.role_name === 'admin') { %>
+                    <a class="edit-link" href="/edit-category/<%= category.category_id %>">Edit</a>
+                <% } %>
             </li>
         <% }); %>
     </ul>

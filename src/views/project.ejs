@@ -39,9 +39,14 @@
     <% }) %>
 </div>
 
-<p>
-    <a class="add-new-link" href="/assign-categories/<%= projectDetails.project_id %>">Assign Categories</a>
-</p>
+<% if (user && user.role_name === 'admin') { %>
+    <p>
+        <a class="edit-link" href="/edit-projects/<%= projectDetails.project_id %>">Edit Project</a>
+    </p>
+    <p>
+        <a class="add-new-link" href="/assign-categories/<%= projectDetails.project_id %>">Assign Categories</a>
+    </p>
+<% } %>
 
 </main>
 
