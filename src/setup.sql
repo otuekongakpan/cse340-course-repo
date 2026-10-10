@@ -151,3 +151,11 @@ JOIN roles r ON u.role_id = r.role_id;
 
 -- Delete the test user
 DELETE FROM users WHERE email = 'otu21@email.com';
+
+-- PROJECT VOLUNTEERS TABLE
+
+CREATE TABLE project_volunteers (
+    user_id INT REFERENCES users(user_id) ON DELETE CASCADE,
+    project_id INT REFERENCES projects(project_id) ON DELETE CASCADE,
+    PRIMARY KEY (user_id, project_id)
+);

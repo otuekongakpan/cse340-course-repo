@@ -564,6 +564,121 @@ button[type="submit"]:active,
   text-decoration: none;
 }
 
+/* --- VOLUNTEER STATUS & ACTIONS --- */
+.volunteer-status {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.volunteer-status p {
+  margin: 0;
+  color: var(--green-dark);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.volunteer-form {
+  margin: 1.5rem 0;
+}
+
+.volunteer-form.inline {
+  display: inline;
+  margin: 0;
+}
+
+.volunteer-btn {
+  font-family: 'Fredoka', system-ui, -apple-system, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #ffffff;
+  background: var(--primary-gradient);
+  border: none;
+  border-radius: 999px;
+  padding: 0.65rem 1.5rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.volunteer-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.volunteer-btn.remove {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+  box-shadow: none;
+}
+
+.volunteer-btn.remove:hover {
+  color: #b91c1c;
+  border-color: #fecaca;
+  background-color: #fef2f2;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* --- DASHBOARD VOLUNTEER LIST --- */
+.volunteer-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 1.5rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.volunteer-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.volunteer-list li:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--green-bright);
+}
+
+.volunteer-list li a {
+  color: var(--green-dark);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.volunteer-list li a:hover {
+  color: var(--green-bright);
+  text-decoration: underline;
+}
+
+.volunteer-date {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-right: auto;
+}
+
+.no-volunteer-projects {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
 /* --- MOBILE RESPONSIVE MEDIA QUERIES --- */
 @media (max-width: 640px) {
   body nav {

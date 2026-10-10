@@ -30,6 +30,22 @@
         </a>
     </p>
 
+    <% if (isLoggedIn) { %>
+        <% if (isVolunteering) { %>
+            <div class="volunteer-status">
+                <p>✓ You are volunteering for this project</p>
+                <form class="volunteer-form inline" action="/projects/<%= projectDetails.project_id %>/unvolunteer" method="POST">
+                    <input type="hidden" name="redirectTo" value="project">
+                    <button type="submit" class="volunteer-btn remove">Remove Myself as Volunteer</button>
+                </form>
+            </div>
+        <% } else { %>
+            <form class="volunteer-form" action="/projects/<%= projectDetails.project_id %>/volunteer" method="POST">
+                <button type="submit" class="volunteer-btn">Volunteer for This Project</button>
+            </form>
+        <% } %>
+    <% } %>
+
     <div class="category-tags">
     <strong>Categories:</strong>
     <% categories.forEach(category => { %>
